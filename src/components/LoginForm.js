@@ -1,5 +1,7 @@
 import React, {Component} from 'react'
 import axios from 'axios'
+import { Redirect } from 'react-router'
+
 
 class LoginForm extends Component {
     constructor(props){
@@ -21,9 +23,7 @@ class LoginForm extends Component {
   
    handleSubmit = (event) => {
        event.preventDefault();
-     alert(`${this.state.username} ${this.state.password}`);    
-     
-    //  axios.post('https://jsonplaceholder.typicode.com/posts',this.state)
+this.props.history.push('/home');       //  axios.post('https://jsonplaceholder.typicode.com/posts',this.state)
     //     .then(response => {
     //         console.log(response);
     //         this.setState(
@@ -42,13 +42,13 @@ class LoginForm extends Component {
            <React.Fragment>
         <h1>Login Form</h1>
 
-       <div class=" text-cent">
-       <form onSubmit={this.handleSubmit}>
-         <div class="container">
-             <label for="username">Username</label>
+       <div className=" text-cent">
+       <form onSubmit={this.handleSubmit}>f
+         <div className="container">
+             <label htmlFor="username">Username</label>
              <input type="text" name="username" value={this.state.username} onChange={this.changeHandler}/>
          </div>
-         <div class="container">
+         <div className="container">
              <label>Password</label>
              <input type="password" name="password" value={this.state.password} onChange={this.changeHandler}/>
          </div>
